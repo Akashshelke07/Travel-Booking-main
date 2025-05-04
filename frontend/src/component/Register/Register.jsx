@@ -15,7 +15,7 @@ function Register({ setIsLoggedIn }) {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://holiday-backend-delta.vercel.app/api/auth/register', {
+      const response = await fetch('https://holiday-backend-delta.vercel.app/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
