@@ -45,7 +45,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 const corsOptions = {
-  origin:"https://restaurant.aadeshgulumbe.me",
+  origin:"https://yoliday-six.vercel.app",
   credentials:true
 }
 app.use(cors(corsOptions));
