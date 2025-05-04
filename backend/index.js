@@ -43,12 +43,22 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 dotenv.config();
-const app = express();
-const corsOptions = {
-  origin:"https://yoliday-six.vercel.app",
-  credentials:true
-}
-app.use(cors(corsOptions));
+// const app = express();
+// const corsOptions = {
+//   origin:"https://yoliday-six.vercel.app",
+//   credentials:true
+// }
+// app.use(cors(corsOptions));
+const cors = require('cors');
+
+// Use your deployed frontend domain in origin
+app.use(cors({
+  origin: 'https://yoliday-six.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
+
+
 app.use(express.json());
 
 mongoose
