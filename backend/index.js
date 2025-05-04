@@ -39,20 +39,24 @@
 
 // api/index.js
 
+const serverless = require('serverless-http');
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('../config/db');
 const cors = require('cors');
 
+// Load env variables
 dotenv.config();
+
+// Connect to DB
 connectDB();
 
+// Initialize app
 const app = express();
-
-// Middleware
 app.use(express.json());
+
 app.use(cors({
-  origin: 'https://your-frontend-url.vercel.app', // Replace with your deployed frontend URL
+  origin: 'https://your-frontend.vercel.app', // use actual frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
@@ -64,12 +68,11 @@ app.use('/api/booking', require('../routes/bookingRoutes'));
 app.use('/api/destinations', require('../routes/destinationRoutes'));
 app.use('/api/getBookings', require('../routes/bookingRoutes'));
 
-// Error handling
+// Error handler
 app.use((err, req, res, next) => {
+  console.error(err.stack);
   res.status(500).json({ message: err.message });
 });
 
-// Export as Vercel-compatible handler
-const serverless = require('serverless-http');
 module.exports = app;
 module.exports.handler = serverless(app);
