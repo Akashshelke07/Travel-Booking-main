@@ -70,7 +70,7 @@ const sendData = async (e) => {
     try {
       // console.log("line 71",token.toString())
       // console.log("line 72",JSON.parse(token))
-        const response = await fetch('http://localhost:5000/api/booking/bookings', {
+        const response = await fetch('http://holiday-backend-delta.vercel.app/api/booking/bookings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
