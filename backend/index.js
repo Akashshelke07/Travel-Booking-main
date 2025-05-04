@@ -57,10 +57,10 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get('/', (req, res) => res.send("Hello World"));
-app.use('/api/auth', require('../routes/authRoutes'));
-app.use('/api/booking', require('../routes/bookingRoutes'));
-app.use('/api/destinations', require('../routes/destinationRoutes'));
-app.use('/api/getBookings', require('../routes/bookingRoutes'));
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/booking', require('./routes/bookingRoutes'));
+app.use('/api/destinations', require('./routes/destinationRoutes'));
+app.use('/api/getBookings', require('./routes/bookingRoutes'));
 
 
 const PORT = process.env.PORT || 5000;
